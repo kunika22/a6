@@ -1,0 +1,38 @@
+<%- include('partials/navbar', { page: '' }) %>
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-semibold">Edit Set: <%= set.name %></h1>
+
+    <form action="/lego/editSet" method="POST" class="mt-4">
+        
+        <div class="mb-4">
+            <label for="set_num" class="block text-sm font-medium text-gray-700">Set Number</label>
+            <input type="text" id="set_num" name="set_num" value="<%= set.set_num %>" class="mt-1 block w-full bg-gray-100 p-2 rounded" readonly />
+        </div>
+
+        <!-- Set Name -->
+        <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-gray-700">Set Name</label>
+            <input type="text" id="name" name="name" value="<%= set.name %>" class="mt-1 block w-full p-2 rounded" />
+        </div>
+
+        <!-- Set Theme -->
+        <div class="mb-4">
+            <label for="theme" class="block text-sm font-medium text-gray-700">Theme</label>
+            <select id="theme" name="theme" class="mt-1 block w-full p-2 rounded">
+                <% themes.forEach(theme => { %>
+                    <option <%= set.theme == theme.name ? "selected" : "" %> value="<%= theme.name %>">
+                        <%= theme.name %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+
+      <!-- Delete Set button -->
+<a href="/lego/deleteSet/<%= set.set_num %>" class="btn btn-error">Delete Set</a>
+
+        <!-- Submit Button -->
+        <div class="mb-4">
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded">Update Set</button>
+        </div>
+    </form>
+</div>

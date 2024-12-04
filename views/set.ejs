@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lego Collection</title>
+  <link rel="stylesheet" href="/main.css">
+</head>
+
+<body class="bg-gray-100">
+
+  <%- include('partials/navbar', { page: '/lego/sets' }) %>
+
+  <section class="hero text-center bg-blue-500 text-white py-10">
+    <div class="hero-content">
+      <h1 class="text-4xl font-extrabold mb-4">Collection</h1>
+      <p class="text-lg mb-6">Select a theme to filter:</p>
+      <div class="flex justify-center space-x-4">
+        <a href="/lego/sets?theme=Playhouse" class="btn px-4 py-2 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400">Playhouse</a>
+        <a href="/lego/sets?theme=Service Packs" class="btn px-4 py-2 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400">Service Packs</a>
+        <a href="/lego/sets?theme=Early Creator" class="btn px-4 py-2 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400">Early Creator</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto mt-10 px-4">
+    <table class="table-auto w-full border-collapse bg-white shadow-lg rounded-lg">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="px-4 py-2 text-left">Image</th>
+          <th class="px-4 py-2 text-left">Name</th>
+          <th class="px-4 py-2 text-left">Theme</th>
+          <th class="px-4 py-2 text-left">Year</th>
+          <th class="px-4 py-2 text-left">Parts</th>
+          <th class="px-4 py-2 text-left">Details</th>
+          <th class="px-4 py-2 text-left">Edit</th> <!-- Added Edit column -->
+        </tr>
+      </thead>
+      <tbody>
+        <% sets.forEach(set => { %>
+          <tr class="border-t">
+            <td class="px-4 py-2">
+              <img src="<%= set.img_url %>" alt="<%= set.name %> image" class="w-24 h-auto rounded">
+            </td>
+            <td class="px-4 py-2"><%= set.name %></td>
+            <td class="px-4 py-2">
+              <a href="/lego/sets?theme=<%= set.Theme.name %>" class="text-blue-500 hover:underline"><%= set.Theme.name %></a>
+            </td>
+            <td class="px-4 py-2"><%= set.year %></td>
+            <td class="px-4 py-2"><%= set.num_parts %></td>
+            <td class="px-4 py-2">
+              <a href="/lego/sets/<%= set.set_num %>" class="btn px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400">Details</a>
+            </td>
+            <% if (session.user) { %>
+              <td class="px-4 py-2">
+                <a href="/lego/editSet/<%= set.set_num %>" class="btn px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-400">Edit</a>
+              </td>
+              <% } %>
+            
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </section>
+</body>
+
+</html>

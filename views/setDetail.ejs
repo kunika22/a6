@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Set Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Lego Set Details</h1>
+    <div>
+        <h2><%= set.name %></h2>
+        <p>Set Number: <%= set.set_num %></p>
+        <p>Theme: <%= set.theme %></p>
+        <p>Year: <%= set.year %></p>
+        <p>Pieces: <%= set.pieces %></p>
+        <img src="<%= set.image_url %>" alt="<%= set.name %>">
+    </div>
+    <a href="/lego/sets">Back to Sets</a>
+</body>
+</html>

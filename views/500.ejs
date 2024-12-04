@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Internal Server Error</title>
+    <link rel="stylesheet" href="/main.css"> <!-- Link to your CSS file -->
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <!-- Navbar Partial -->
+    <%- include('partials/navbar', { page: '' }) %>
+
+    <section class="container mx-auto text-center mt-16">
+        <h1 class="text-6xl font-extrabold text-red-600">500 - Internal Server Error</h1>
+        <p class="mt-6 text-lg text-gray-700"><%= message || "I'm sorry, but we have encountered an internal error." %></p>
+        <a href="/" class="btn mt-6 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300">Go back to Home</a>
+    </section>
+    
+</body>
+
+</html>

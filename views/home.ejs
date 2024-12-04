@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection</title>
+    <link href="/css/main.css" rel="stylesheet">
+    
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar Partial -->
+    <%- include('partials/navbar', { page: '/' }) %>
+
+    <div class="container mx-auto mt-10 px-4">
+        <div class="hero bg-blue-500 text-white p-8 rounded-lg text-center">
+            <h1 class="text-4xl font-extrabold">Explore the Amazing Lego Collection!</h1>
+            <p class="mt-4 text-lg">Dive into the world of LEGO with our curated sets from various themes!</p>
+            <a href="/lego/sets" class="btn mt-6 px-6 py-3 bg-yellow-500 text-black rounded-full hover:bg-yellow-400">
+                View All Sets
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="https://cdn.rebrickable.com/media/sets/028-1.jpg" alt="Nursery Furniture">
+                <div class="p-4">
+                    <h2 class="text-xl font-bold">Nursery Furniture</h2>
+                    <p>A charming Playhouse set from 1979 featuring nursery furniture pieces.</p>
+                    <p class="text-sm text-gray-500">Year: 1979 | Parts: 7</p>
+                    <a href="/lego/sets/028-1" class="btn mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="https://cdn.rebrickable.com/media/sets/03-1.jpg" alt="Doors and Fences">
+                <div class="p-4">
+                    <h2 class="text-xl font-bold">Doors and Fences</h2>
+                    <p>A classic Service Pack from 1980 containing essential door and fence pieces.</p>
+                    <p class="text-sm text-gray-500">Year: 1980 | Parts: 10</p>
+                    <a href="/lego/sets/03-1" class="btn mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="https://cdn.rebrickable.com/media/sets/03093-1.jpg" alt="Board Game">
+                <div class="p-4">
+                    <h2 class="text-xl font-bold">The Race to Build It Board Game</h2>
+                    <p>An engaging Early Creator board game from 1999 with 77 pieces.</p>
+                    <p class="text-sm text-gray-500">Year: 1999 | Parts: 77</p>
+                    <a href="/lego/sets/03093-1" class="btn mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

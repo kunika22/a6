@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Set</title>
+    <link rel="stylesheet" href="/main.css"> <!-- Link to your CSS file -->
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <!-- Navbar Partial -->
+    <%- include('partials/navbar', { page: '/lego/addSet' }) %>
+
+    <div class="container mx-auto mt-10 px-4">
+        <div class="hero text-center">
+            <h1 class="text-4xl font-extrabold text-blue-600">Add Set</h1>
+        </div>
+
+        <form action="/lego/addSet" method="POST" class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+            <div class="form-group mb-4">
+                <label for="name" class="block text-lg font-medium text-gray-700">Set Name</label>
+                <input type="text" id="name" name="name" class="form-control mt-1 block w-full" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="year" class="block text-lg font-medium text-gray-700">Year</label>
+                <input type="number" id="year" name="year" class="form-control mt-1 block w-full" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="num_parts" class="block text-lg font-medium text-gray-700">Number of Parts</label>
+                <input type="number" id="num_parts" name="num_parts" class="form-control mt-1 block w-full" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="img_url" class="block text-lg font-medium text-gray-700">Image URL</label>
+                <input type="url" id="img_url" name="img_url" class="form-control mt-1 block w-full" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="theme_id" class="block text-lg font-medium text-gray-700">Theme</label>
+                <select id="theme_id" name="theme_id" class="form-control mt-1 block w-full" required>
+                    <% themes.forEach(theme => { %>
+                        <option value="<%= theme.id %>"><%= theme.name %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form-group mb-4">
+                <label for="set_num" class="block text-lg font-medium text-gray-700">Set Number</label>
+                <input type="text" id="set_num" name="set_num" class="form-control mt-1 block w-full" required>
+            </div>
+            <button type="submit" class="btn mt-6 px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300">Add Set</button>
+        </form>
+    </div>
+</body>
+
+</html>

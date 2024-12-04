@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Lego Collection</title>
+    <link href="../css/main.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navbar Partial -->
+    <%- include('partials/navbar', { page: '/about' }) %>
+
+    <div class="container mx-auto mt-10 px-4">
+        <div class="hero text-center">
+            <h1 class="text-4xl font-extrabold text-blue-600">About</h1>
+            <p class="mt-4 text-lg text-gray-700">Learn more about the Lego Collection and the creator!</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div class="flex justify-center items-center">
+                <img src="/image/MyImage.jpg" alt="Kunika Sood" class="rounded-lg shadow-lg transition-transform transform hover:scale-105" style="width: 300px; height: auto;">
+            </div>
+
+            <div class="flex flex-col justify-center">
+                <p class="text-lg text-gray-800 leading-relaxed">
+                    Hello! I'm <strong>Kunika Sood</strong>, and I’m currently working on this project as part of my Web Development course at Seneca College. I love building with LEGO, and I'm excited to share my collection with you. Some of my hobbies include exploring new tech, gaming, and writing blogs.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-sm text-gray-600">Feel free to explore the rest of the website and discover more about my Lego collection!</p>
+        </div>
+    </div>
+
+    
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User History</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-base-200">
+    <!-- Include Navbar -->
+    <%- include('partials/navbar', { page: '/userHistory' }) %>
+
+    <!-- Main Content -->
+    <div class="min-h-screen flex items-center justify-center bg-base-200">
+      <div class="w-full max-w-4xl p-6 bg-base-100 shadow-lg rounded-lg">
+        <!-- User Information Section -->
+        <h1 class="text-4xl font-bold text-center mb-6">User History</h1>
+        <div class="mb-6">
+          <p class="text-lg">
+            <strong>User Name:</strong> <%= user.userName %>
+          </p>
+          <p class="text-lg"><strong>Email:</strong> <%= user.email %></p>
+        </div>
+
+        <!-- Login History Table -->
+        <div class="overflow-x-auto">
+          <table class="table w-full">
+            <!-- Table Header -->
+            <thead>
+              <tr>
+                <th class="text-left">#</th>
+                <th class="text-left">Login Date/Time</th>
+                <th class="text-left">User Agent</th>
+              </tr>
+            </thead>
+            <!-- Table Body -->
+            <tbody>
+              <% user.loginHistory.forEach((history, index) => { %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= history.dateTime %></td>
+                <td><%= history.userAgent %></td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

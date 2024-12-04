@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-base-200">
+    <!-- Include Navbar -->
+    <%- include('partials/navbar', { page: '/register' }) %>
+
+    <!-- Main Content -->
+    <div class="min-h-screen flex items-center justify-center bg-base-200">
+      <div class="w-full max-w-md p-8 bg-base-100 shadow-lg rounded-lg">
+        <% if (successMessage) { %>
+        <!-- Success Message -->
+        <div class="alert mb-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span><%= successMessage %></span>
+        </div>
+        <a href="/login" class="btn btn-success w-full text-center">
+          Proceed to Log in
+        </a>
+        <% } else { %>
+        <!-- Registration Form -->
+        <h1 class="text-4xl font-bold text-center mb-4">Register</h1>
+        <p class="text-center mb-6">Create your account below.</p>
+
+        <form method="post" action="/register" class="space-y-6">
+          <!-- User Name Field -->
+          <div class="form-control">
+            <label for="userName" class="label">
+              <span class="label-text">User Name</span>
+            </label>
+            <input
+              id="userName"
+              name="userName"
+              type="text"
+              placeholder="User Name"
+              required
+              value=""
+              class="input input-bordered w-full"
+            />
+          </div>
+
+          <!-- Password Field -->
+          <div class="form-control">
+            <label for="password" class="label">
+              <span class="label-text">Password</span>
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              required
+              class="input input-bordered w-full"
+            />
+          </div>
+
+          <!-- Confirm Password Field -->
+          <div class="form-control">
+            <label for="password2" class="label">
+              <span class="label-text">Confirm Password</span>
+            </label>
+            <input
+              id="password2"
+              name="password2"
+              type="password"
+              placeholder="Confirm Password"
+              required
+              class="input input-bordered w-full"
+            />
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-control">
+            <label for="email" class="label">
+              <span class="label-text">Email Address</span>
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              required
+              class="input input-bordered w-full"
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-full">Register</button>
+        </form>
+
+        <!-- Error Message Display -->
+        <% if (errorMessage) { %>
+        <div class="alert alert-error mt-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span><%= errorMessage %></span>
+        </div>
+        <% } %> <% } %>
+      </div>
+    </div>
+  </body>
+</html>
