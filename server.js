@@ -6,7 +6,7 @@
 *
 * https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
 *
-* Name: ___Kunika Sood___________________ Student ID: __156799223____________ Date: ___18-11-2024___________
+* Name: ___Kunika Sood___________________ Student ID: __156799223____________ Date: ___02-12-2024__________
 *
 * Published URL: ___________________________________________________________
 *
@@ -221,4 +221,15 @@ app.post("/login", (req, res) => {
       res.render("login", { errorMessage: err, userName: req.body.userName })
     );
 });
+
+app.get("/logout", (req, res) => {
+  req.session.reset();
+  res.redirect("/");
+});
+
+app.get("/userHistory", ensureLogin, (req, res) => {
+  res.render("userHistory", { user: req.session.user });
+});
+
+
 module.exports = app;
