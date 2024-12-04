@@ -221,3 +221,4 @@ app.post("/login", (req, res) => {
       res.render("login", { errorMessage: err, userName: req.body.userName })
     );
 });
+module.exports = app;
